@@ -1,0 +1,11 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="bottomNavigationStyle">@color/babyblue</item>
+        <item name="colorPrimary">@color/babyblue</item>
+        <item name="colorPrimaryDark">@color/babyblue</item>
+        <item name="colorAccent">@color/babyblue</item>
+        <item name="android:navigationBarColor">@color/babyblue</item>    </style>
+
+</resources>
