@@ -9,16 +9,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.nustapp.Interfaces.OnButtonClickListener;
 import com.example.nustapp.ItemClasses.EventBannerData;
 import com.example.nustapp.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -50,7 +46,6 @@ public class EventBannerAdapter extends RecyclerView.Adapter<EventBannerAdapter.
     public void onBindViewHolder(@NonNull EventBannerAdapter.EventBannerViewHolder holder, int position) {
         EventBannerData itemData = items.get(position);
         String eventTitle = itemData.getEventTitle();
-
         int intresetedNo = itemData.getIntresetedNo();
         int bannerUrl = itemData.getBannerUrl();
         holder.eventTitle.setText(eventTitle);

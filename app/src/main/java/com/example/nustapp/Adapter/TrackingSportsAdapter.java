@@ -6,12 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.nustapp.Activity.MainActivity;
 import com.example.nustapp.Interfaces.OnButtonClickListener;
 import com.example.nustapp.ItemClasses.TrackingSportsData;
 import com.example.nustapp.R;
@@ -67,6 +70,9 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
 
         CardView item2cardview;
 
+//        ConstraintLayout temp1;
+//        ConstraintLayout temp2;
+
         public TrackingSportsViewHolder(@NonNull View itemView, OnButtonClickListener listener) {
             super(itemView);
             trackingitem1image = itemView.findViewById(R.id.trackingitem1image);
@@ -75,6 +81,8 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
             trackingitem2title = itemView.findViewById(R.id.trackingitem2title);
             item1cardview = itemView.findViewById(R.id.trackingitem1);
             item2cardview = itemView.findViewById(R.id.trackingitem2);
+//            temp1 = itemView.findViewById(R.id.temp1);
+//            temp2 = itemView.findViewById(R.id.temp2);
 
             item1cardview.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,7 +90,7 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onButtonClick(position, "item1"); // Pass a tag or identifier to differentiate between the card views
+                            listener.onButtonClick(position , "item1"); // Pass a tag or identifier to differentiate between the card views
                         }
                     }
                 }
@@ -98,6 +106,36 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                         }
                     }
                 }
+            });
+
+            trackingitem1image.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+
+                   if (listener != null) {
+                       int position = getAdapterPosition();
+                       if (position != RecyclerView.NO_POSITION) {
+                           listener.onButtonClick(position,"item1"); // Pass a tag or identifier to differentiate between the card views
+                       }
+                   }
+               }
+
+
+           });
+
+            trackingitem2image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position,"item2"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+
+
             });
 
         }
