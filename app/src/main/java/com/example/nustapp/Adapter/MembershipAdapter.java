@@ -74,7 +74,6 @@ public class MembershipAdapter extends RecyclerView.Adapter<MembershipAdapter.Me
         public MembershipViewHolder(@NonNull View itemView, OnButtonClickListener listener) {
             super(itemView);
             membershipBannerImage = itemView.findViewById(R.id.membersshipbannerImage);
-
             membershipEventTitle = itemView.findViewById(R.id.membersshipeventtitle);
             membershipIntresetedtxt = itemView.findViewById(R.id.membersshipintresetedtxt);
             membershipExpandableLayout = itemView.findViewById(R.id.membersshipExpandableLayout);

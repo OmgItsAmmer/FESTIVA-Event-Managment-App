@@ -1,12 +1,18 @@
 package com.example.nustapp.Fragments;
 
+import android.animation.LayoutTransition;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
@@ -40,11 +46,33 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         TrackingSportsAdapter trackingSportsAdapter;
         LinearLayoutManager trackinglinearlayout;
         LinearLayoutManager membershipLayout;
+        CardView cardviewExpandable;
+        ConstraintLayout ExpandableprofileLayout;
+        LinearLayout ExpandableLinearLayout;
+        TextView expandablelastname;
 
 
-
+        expandablelastname = rootView.findViewById(R.id.expandablelastname);
         trackingRecyclerView = rootView.findViewById(R.id.trendingRecyclerview);
         membershipRecyclerView = rootView.findViewById(R.id.MembershipRecyclerView);
+        cardviewExpandable = rootView.findViewById(R.id.cardviewExpandable);
+        ExpandableprofileLayout = rootView.findViewById(R.id.expandableprofilelayout);
+        ExpandableLinearLayout = rootView.findViewById(R.id.expandalbeLinearLayout);
+
+
+        ExpandableLinearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        cardviewExpandable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int visiblilty = (ExpandableprofileLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+                TransitionManager.beginDelayedTransition(ExpandableLinearLayout, new AutoTransition());
+                ExpandableprofileLayout.setVisibility(visiblilty);
+                expandablelastname.setVisibility(visiblilty);
+            }
+        });
+
+
+
 
 
 

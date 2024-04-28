@@ -41,21 +41,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="@android:color/transparent"
-        app:cardElevation="0dp"
         android:background="@drawable/topcurvedcard"
+        android:backgroundTint="@android:color/transparent"
         app:cardBackgroundColor="@color/babyblue"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.924">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trendingRecyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
 
             />
 
@@ -71,92 +70,201 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardviewExpandable"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="22dp"
             android:layout_gravity="center"
             app:cardBackgroundColor="@color/black"
+            android:onClick="expand"
             >
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/expandalbeLinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:animateLayoutChanges="true"
                 >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/SportsImageCardView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="22dp"
-                    android:layout_marginStart="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" >
+                    <TextView
+                        android:id="@+id/expandablelastname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kanitlight"
+                        android:paddingBottom="8dp"
+                        android:text="Saeed "
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:visibility="gone    "
+                        app:layout_constraintStart_toEndOf="@+id/SportsNametxt"
+                        app:layout_constraintTop_toBottomOf="@+id/SportsHellotxt" />
 
-
-                    <ImageButton
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/SportsImageCardView"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:background="@drawable/mypic"
-                        />
-                </androidx.cardview.widget.CardView>
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="22dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.644">
 
-                <TextView
-                    android:id="@+id/SportsHellotxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="28dp"
-                    android:fontFamily="@font/kanitlight"
-                    android:text="Hello,"
-                    android:textColor="@color/darkgray"
-                    app:layout_constraintStart_toEndOf="@+id/SportsImageCardView"
-                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/SportsNametxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/kanitlight"
-                    android:paddingBottom="8dp"
-                    android:text="Ammer "
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toEndOf="@+id/SportsImageCardView"
-                    app:layout_constraintTop_toBottomOf="@+id/SportsHellotxt" />
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/mypic"
+                            android:scaleType="fitXY"
+                          />
+                    </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="42dp"
-                    android:layout_height="41dp"
-                    android:layout_marginStart="48dp"
-                    app:cardCornerRadius="22dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.915"
-                    app:layout_constraintStart_toEndOf="@+id/SportsNametxt"
-                    app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/SportsHellotxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="28dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="Hello,"
+                        android:textColor="@color/darkgray"
+                        app:layout_constraintStart_toEndOf="@+id/SportsImageCardView"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageButton
+                    <TextView
+                        android:id="@+id/SportsNametxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="0dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:paddingBottom="8dp"
+                        android:text="Ammer "
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toEndOf="@+id/SportsImageCardView"
+                        app:layout_constraintTop_toBottomOf="@+id/SportsHellotxt" />
 
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="184dp"
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="42dp"
+                        android:layout_height="41dp"
+                        android:layout_marginStart="48dp"
+                        app:cardCornerRadius="22dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.509"
+                        app:layout_constraintHorizontal_bias="0.914"
                         app:layout_constraintStart_toEndOf="@+id/SportsNametxt"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.613">
+
+                        <ImageButton
+
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="184dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.509"
+                            app:layout_constraintStart_toEndOf="@+id/SportsNametxt"
+                            app:layout_constraintTop_toTopOf="parent">
 
 
-                    </ImageButton>
+                        </ImageButton>
 
-                </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/expandableprofilelayout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp">
+
+                    <TextView
+                        android:id="@+id/roletxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="Role:  "
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/roleedittxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="88dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="Student"
+                        app:layout_constraintStart_toEndOf="@+id/roletxt"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cmstxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="CMS ID: "
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/roletxt" />
+
+                    <TextView
+                        android:id="@+id/cmsedittxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="76dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="466445"
+                        app:layout_constraintStart_toEndOf="@+id/cmstxt"
+                        app:layout_constraintTop_toBottomOf="@+id/roleedittxt" />
+
+                    <TextView
+                        android:id="@+id/membershiptxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:text="Memberships: "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cmstxt"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/membeershipedittxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/kanitlight"
+                        android:maxWidth="200dp"
+                        android:text="Swimming Pool, Gym, Saddle Club"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.064"
+                        app:layout_constraintStart_toEndOf="@+id/membershiptxt"
+                        app:layout_constraintTop_toBottomOf="@+id/cmsedittxt"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
 
 
 
