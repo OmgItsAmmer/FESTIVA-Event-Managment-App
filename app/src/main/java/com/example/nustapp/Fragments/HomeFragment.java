@@ -166,12 +166,9 @@ public class HomeFragment extends Fragment implements  OnButtonClickListener{
     }
 
     @Override
-    public void onButtonClick(int position) {
+    public void onOneItemButtonClick(int position) {
 
     }
 
-    @Override
-    public void LayoutListner(View view) {
 
-    }
 }

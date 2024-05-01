@@ -1,24 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/darkbluebg"
+    tools:context=".Activity.MainActivity">
 
-    <TextView
-        android:id="@+id/firstFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="In Progress"
-        android:textColor="@color/babyblue"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        app:layout_constraintVertical_bias="0.023">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tripsrecyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/kanitlight"
+                android:text="Trips:"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView5" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardElevation="0dp"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/seminarRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:fontFamily="@font/kanitlight"
+                android:text="Seminars:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+            <FrameLayout
+                android:id="@+id/societyFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardviewExpandableSociety"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="expand"
+                    app:cardBackgroundColor="@color/black"
+                    app:cardCornerRadius="22dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/expandalbeLinearLayoutSociety"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/expandablelastnameSociety"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/kanitlight"
+                                android:paddingBottom="8dp"
+                                android:text="Saeed "
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:visibility="gone"
+                                app:layout_constraintStart_toEndOf="@+id/SocietyNametxt"
+                                app:layout_constraintTop_toBottomOf="@+id/SocietyHellotxt" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/SocietyImageCardView"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                app:cardCornerRadius="22dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.644">
+
+
+                                <ImageButton
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/mypic"
+                                    android:scaleType="fitXY" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/SocietyHellotxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="28dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="Hello,"
+                                android:textColor="@color/darkgray"
+                                app:layout_constraintStart_toEndOf="@+id/SocietyImageCardView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/SocietyNametxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:paddingBottom="8dp"
+                                android:text="Ammer "
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                app:layout_constraintStart_toEndOf="@+id/SocietyImageCardView"
+                                app:layout_constraintTop_toBottomOf="@+id/SocietyHellotxt" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="42dp"
+                                android:layout_height="41dp"
+                                android:layout_marginStart="48dp"
+                                app:cardCornerRadius="22dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.914"
+                                app:layout_constraintStart_toEndOf="@+id/SocietyNametxt"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.727">
+
+                                <ImageButton
+
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="184dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.509"
+                                    app:layout_constraintStart_toEndOf="@+id/SocietyNametxt"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                </ImageButton>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableprofilelayoutSociety"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/roletxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="28dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="Role:  "
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/roleedittxtSociety"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="88dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="Student"
+                                app:layout_constraintStart_toEndOf="@+id/roletxt"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/cmstxtSociety"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="28dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="CMS ID: "
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/roletxt" />
+
+                            <TextView
+                                android:id="@+id/cmsedittxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="76dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="466445"
+                                app:layout_constraintStart_toEndOf="@+id/cmstxtSociety"
+                                app:layout_constraintTop_toBottomOf="@+id/roleedittxtSociety" />
+
+                            <TextView
+                                android:id="@+id/membershiptxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="28dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:text="Memberships: "
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cmstxtSociety"
+                                app:layout_constraintVertical_bias="0.0" />
+
+                            <TextView
+                                android:id="@+id/membeershipedittxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="32dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/kanitlight"
+                                android:maxWidth="200dp"
+                                android:text="Swimming Pool, Gym, Saddle Club"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.064"
+                                app:layout_constraintStart_toEndOf="@+id/membershiptxt"
+                                app:layout_constraintTop_toBottomOf="@+id/cmsedittxt"
+                                app:layout_constraintVertical_bias="0.0" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </FrameLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@android:color/transparent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topsocietrecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:fontFamily="@font/kanitlight"
+                android:text="Top Societies: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/societyFrameLayout" />
+
+            <TextView
+                android:id="@+id/seealltxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/kanitlight"
+                android:textColor="@color/white"
+                android:layout_marginBottom="12dp"
+                android:text="See all"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

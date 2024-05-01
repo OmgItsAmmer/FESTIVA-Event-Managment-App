@@ -46,7 +46,7 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         TrackingSportsAdapter trackingSportsAdapter;
         LinearLayoutManager trackinglinearlayout;
         LinearLayoutManager membershipLayout;
-        CardView cardviewExpandable;
+        CardView cardViewExpandable;
         ConstraintLayout ExpandableprofileLayout;
         LinearLayout ExpandableLinearLayout;
         TextView expandablelastname;
@@ -55,13 +55,13 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         expandablelastname = rootView.findViewById(R.id.expandablelastname);
         trackingRecyclerView = rootView.findViewById(R.id.trendingRecyclerview);
         membershipRecyclerView = rootView.findViewById(R.id.MembershipRecyclerView);
-        cardviewExpandable = rootView.findViewById(R.id.cardviewExpandable);
+        cardViewExpandable = rootView.findViewById(R.id.cardviewExpandable);
         ExpandableprofileLayout = rootView.findViewById(R.id.expandableprofilelayout);
         ExpandableLinearLayout = rootView.findViewById(R.id.expandalbeLinearLayout);
 
 
         ExpandableLinearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        cardviewExpandable.setOnClickListener(new View.OnClickListener() {
+        cardViewExpandable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int visiblilty = (ExpandableprofileLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
@@ -130,12 +130,9 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
     }
 
     @Override
-    public void onButtonClick(int position) {
-        Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void LayoutListner(View view) {
+    public void onOneItemButtonClick(int position) {
 
     }
+
+
 }
