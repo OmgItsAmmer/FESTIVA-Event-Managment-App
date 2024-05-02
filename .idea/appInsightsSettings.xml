@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.nustapp" />
+                  <option name="mobileSdkAppId" value="1:1044134810559:android:f1c7853dcf09832c17470a" />
+                  <option name="projectId" value="campusconnectmain" />
+                  <option name="projectNumber" value="1044134810559" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
