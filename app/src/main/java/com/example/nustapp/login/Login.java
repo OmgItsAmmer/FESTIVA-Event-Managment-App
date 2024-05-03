@@ -18,19 +18,21 @@ import java.util.Objects;
 public class Login extends AppCompatActivity {
 
     EditText emailAddress, password;
+    Button registerButton;
 
-    //    //FirebaseAuth auth = FirebaseAuth.getInstance();
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+////
+//    @SuppressLint("MissingInflatedId")
 //
-    @SuppressLint("MissingInflatedId")
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_login);
+//
 //        emailAddress = findViewById(R.id.emailAddress);
 //        password = findViewById(R.id.password);
 //        Button RegisterButton = findViewById(R.id.register);
+//
 //        Button LogInButton = findViewById(R.id.loginButton);
 //
 //        LogInButton.setOnClickListener(v -> {
@@ -43,9 +45,9 @@ public class Login extends AppCompatActivity {
 //            Intent registerintent = new Intent(getApplicationContext(), Register.class);
 //            startActivity(registerintent);
 //        });
-//    }
-
-        //method for login
+////    }
+//
+//        //method for login
 //    public void login(String email, String password) {
 //        if (email.isEmpty() || password.isEmpty()) {
 //            Toast.makeText(Login.this, "Empty Credentials", Toast.LENGTH_SHORT).show();
@@ -65,5 +67,5 @@ public class Login extends AppCompatActivity {
 //            });
 //        }
 //    }
-    }
+  //  }
 }

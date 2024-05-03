@@ -151,6 +151,8 @@ public class HomeFragment extends Fragment implements  OnButtonClickListener{
         eventRecyclerView.setLayoutManager(bannerlinearlayout);
         SnapHelper snapHelper1 = new PagerSnapHelper(); // or LinearSnapHelper() for smoother scrolling
         snapHelper1.attachToRecyclerView(eventRecyclerView);
+
+       // postponeEnterTransition();
         return rootView;
     }
 

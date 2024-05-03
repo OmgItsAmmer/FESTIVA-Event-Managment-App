@@ -26,12 +26,12 @@ public class Register extends AppCompatActivity {
     String repass;
 
 
-//    @SuppressLint("MissingInflatedId")
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(layout.activity_register);
-//        //Assigning ids to variables
+    @SuppressLint("MissingInflatedId")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(layout.activity_register);
+        //Assigning ids to variables
 //        auth = FirebaseAuth.getInstance();
 //        signUpEmailAddress = findViewById(id.emailAddress);
 //        signUpPassword = findViewById(id.password);
@@ -69,5 +69,5 @@ public class Register extends AppCompatActivity {
 //                }
 //            });
 //        }
-//    }
+    }
 }
