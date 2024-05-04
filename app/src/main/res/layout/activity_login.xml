@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/darkbluebg"
-    tools:context="com.example.login.Login">
+    tools:context="com.example.nustapp.login.Login">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -53,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome"
-                android:textColor="@color/white"
+                android:textColor="#ff6530a4"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
@@ -96,7 +95,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:inputType="numberPassword"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <RelativeLayout

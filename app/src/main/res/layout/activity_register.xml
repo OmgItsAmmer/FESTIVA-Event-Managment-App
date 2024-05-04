@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg8"
-    tools:context="com.example.login.Register">
+    tools:context="com.example.nustapp.login.Register">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.7"
-        android:background="@color/babyblue" />
+        android:background="@drawable/bg8" />
 
     <LinearLayout
         android:layout_width="match_parent"
