@@ -1,6 +1,7 @@
 package com.example.nustapp.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
+        Intent intent = getIntent();
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                  //  .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                     .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, sportsFragment)
                     .commit();
 
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                  //  .setCustomAnimations(R.anim.exit_right_to_left, R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setCustomAnimations(R.anim.exit_right_to_left, R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, trendFragments)
                     .commit();
 
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                //    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, homeFragment)
                     .commit();
 
