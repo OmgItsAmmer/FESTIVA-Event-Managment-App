@@ -57,12 +57,9 @@ public class GetUserInfo extends AppCompatActivity {
                     } else {
                         Log.w("TAG", "Error adding document", task.getException());
                     }
-                    //Add a new document with a generated ID
-
                 });
             }
                         users.clear();
-
         });
     }
 }

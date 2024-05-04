@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setReorderingAllowed(true)
+                 //   .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, societyFragment)
                     .commit();
 
@@ -108,7 +109,8 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         } else if (itemId == R.id.sports && !(menuItem.isChecked())) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setReorderingAllowed(true)
+                  //  .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, sportsFragment)
                     .commit();
 
@@ -116,7 +118,8 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         } else if (itemId == R.id.trends && !(menuItem.isChecked())) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.exit_right_to_left, R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setReorderingAllowed(true)
+                  //  .setCustomAnimations(R.anim.exit_right_to_left, R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, trendFragments)
                     .commit();
 
@@ -125,7 +128,8 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         else if (itemId== R.id.Home) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setReorderingAllowed(true)
+                //    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, homeFragment)
                     .commit();
 

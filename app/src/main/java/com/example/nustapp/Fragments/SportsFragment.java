@@ -115,7 +115,7 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         snapHelper2.attachToRecyclerView(membershipRecyclerView);
 
 
-
+    //    postponeEnterTransition();
 
         return rootView;
     }

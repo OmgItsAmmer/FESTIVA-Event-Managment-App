@@ -20,8 +20,9 @@ import java.util.Objects;
 public class Login extends AppCompatActivity {
 
     EditText emailAddress, password;
+    Button registerButton;
 
-    FirebaseAuth auth = FirebaseAuth.getInstance();
+            FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @SuppressLint("MissingInflatedId")
 
@@ -35,14 +36,14 @@ public class Login extends AppCompatActivity {
         Button RegisterButton = findViewById(R.id.register);
         Button LogInButton = findViewById(R.id.loginButton);
 
-//        if(auth.getCurrentUser() != null) {
-//            startActivity(new Intent(getApplicationContext(), com.example.nustapp.Activity.MainActivity.class));
-//        }
+        if(auth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), com.example.nustapp.Activity.MainActivity.class));
+       }
 
         LogInButton.setOnClickListener(v -> {
             String user = emailAddress.getText().toString();
             String pass = password.getText().toString();
-                login(user, pass);
+            login(user, pass);
         });
 
         RegisterButton.setOnClickListener(v -> startActivity(new Intent(this, Register.class)));
@@ -52,20 +53,16 @@ public class Login extends AppCompatActivity {
     public void login(String email, String password) {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(Login.this, "Empty Credentials", Toast.LENGTH_SHORT).show();
-        }
-        else if (password.length() < 6) {
+        } else if (password.length() < 6) {
             Toast.makeText(Login.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     startActivity(new Intent(getApplicationContext(), com.example.nustapp.Activity.MainActivity.class));
-                }
-                else {
+                } else {
                     if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                         Toast.makeText(Login.this, "Invalid credentials. Please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(Login.this, "Login Failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }

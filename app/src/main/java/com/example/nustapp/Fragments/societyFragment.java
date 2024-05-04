@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.nustapp.Activity.MainActivity;
 import com.example.nustapp.Activity.societyactivity;
 import com.example.nustapp.Adapter.MembershipAdapter;
 import com.example.nustapp.Adapter.SeminarAdapter;
@@ -32,8 +33,13 @@ import com.example.nustapp.ItemClasses.SeminarItemData;
 import com.example.nustapp.ItemClasses.TopSocietyData;
 import com.example.nustapp.ItemClasses.TripItemData;
 import com.example.nustapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class societyFragment extends Fragment implements OnButtonClickListener {
 
@@ -56,6 +62,7 @@ ConstraintLayout expandableprofilelayoutSociety;
 TextView expandablelastnameSociety;
 
 TextView seealltxt;
+//CardView seeallcardview;
 
     public societyFragment(){
         // require a empty public constructor
@@ -73,7 +80,38 @@ TextView seealltxt;
         expandablelastnameSociety = rootView.findViewById(R.id.expandablelastnameSociety);
         seminarRecyclerView = rootView.findViewById(R.id.seminarRecyclerView);
         triprecyclerView = rootView.findViewById(R.id.tripsrecyclerview);
-        seealltxt = rootView.findViewById(R.id.seealltxt);
+     seealltxt = rootView.findViewById(R.id.seealltxt);
+     //   seeallcardview = rootView.findViewById(R.id.seeallcardview);
+
+
+//        HashMap map = new HashMap();
+//        map.put("1","item1");
+//        map.put("2","item2");
+//        map.put("3","item3");
+//
+//
+//
+//        seealltxt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseFirestore db = FirebaseFirestore.getInstance();
+//                db.collection("temp").document("meow").set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Toast.makeText(getActivity(), "meow" + e, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), societyactivity.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
 
 
@@ -89,12 +127,7 @@ TextView seealltxt;
         });
 
 
-        seealltxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), societyactivity.class); //May cause error
-            }
-        });
+
 
 
 
@@ -111,13 +144,15 @@ TextView seealltxt;
         topSocietyAdapter = new TopSocietyAdapter(requireContext().getApplicationContext(), topSocietyData);
         topSocietyRecyclerView.setAdapter(topSocietyAdapter);
         topSocietyAdapter.setOnButtonClickListener(this);
+        topSocietyRecyclerView.setHasFixedSize(true);
+        topSocietyRecyclerView.setItemViewCacheSize(20);
        // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
         topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-        SnapHelper snapHelper2 = new PagerSnapHelper();
-        snapHelper2.attachToRecyclerView(topSocietyRecyclerView);
+      //  SnapHelper snapHelper2 = new PagerSnapHelper();
+      //  snapHelper2.attachToRecyclerView(topSocietyRecyclerView);
 
         ArrayList<SeminarItemData> seminarItemData = getSeminarItemData();
 
@@ -125,13 +160,16 @@ TextView seealltxt;
         seminarAdapter = new SeminarAdapter( seminarItemData,requireContext().getApplicationContext());
         seminarRecyclerView.setAdapter(seminarAdapter);
         seminarAdapter.setOnButtonClickListener(this);
+        seminarRecyclerView.setHasFixedSize(true);
+        seminarRecyclerView.setItemViewCacheSize(20);
+
         // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
         seminarRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-        SnapHelper snapHelper3 = new PagerSnapHelper();
-        snapHelper3.attachToRecyclerView(seminarRecyclerView);
+     //   SnapHelper snapHelper3 = new PagerSnapHelper();
+       //snapHelper3.attachToRecyclerView(seminarRecyclerView);
 
 
         ArrayList<TripItemData> tripItemData = new ArrayList<>();
@@ -144,15 +182,20 @@ TextView seealltxt;
         tripItemData.add(item9);
 
         tripsAdapter = new TripsAdapter( tripItemData,requireContext().getApplicationContext());
+        triprecyclerView.setHasFixedSize(true);
         triprecyclerView.setAdapter(tripsAdapter);
         tripsAdapter.setOnButtonClickListener(this);
+        triprecyclerView.setItemViewCacheSize(20);
+
         // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
         triprecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-        SnapHelper snapHelper4 = new PagerSnapHelper();
-        snapHelper4.attachToRecyclerView(triprecyclerView);
+       // SnapHelper snapHelper4 = new PagerSnapHelper();
+       // snapHelper4.attachToRecyclerView(triprecyclerView);
+
+       // postponeEnterTransition();
 
 
         return rootView;
