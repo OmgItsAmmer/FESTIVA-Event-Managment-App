@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.nustapp.Activity.MainActivity;
 import com.example.nustapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -21,7 +24,6 @@ public class Login extends AppCompatActivity {
 
     EditText emailAddress, password;
     Button registerButton;
-
             FirebaseAuth auth = FirebaseAuth.getInstance();
 
     @SuppressLint("MissingInflatedId")
@@ -36,9 +38,9 @@ public class Login extends AppCompatActivity {
         Button RegisterButton = findViewById(R.id.register);
         Button LogInButton = findViewById(R.id.loginButton);
 
-        if(auth.getCurrentUser() != null) {
+        if (auth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), com.example.nustapp.Activity.MainActivity.class));
-       }
+        }
 
         LogInButton.setOnClickListener(v -> {
             String user = emailAddress.getText().toString();
