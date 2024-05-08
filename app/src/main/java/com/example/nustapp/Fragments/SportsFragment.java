@@ -1,6 +1,7 @@
 package com.example.nustapp.Fragments;
 
 import android.animation.LayoutTransition;
+import android.content.Intent;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -19,16 +20,14 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.nustapp.Adapter.EventBannerAdapter;
+import com.example.nustapp.Activity.SportTrackerActivity;
 import com.example.nustapp.Adapter.MembershipAdapter;
 import com.example.nustapp.Adapter.TrackingSportsAdapter;
 import com.example.nustapp.Interfaces.OnButtonClickListener;
-import com.example.nustapp.ItemClasses.EventBannerData;
 import com.example.nustapp.ItemClasses.MembershipItemData;
 import com.example.nustapp.ItemClasses.TrackingSportsData;
 import com.example.nustapp.R;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class SportsFragment extends Fragment implements OnButtonClickListener {
@@ -123,7 +122,9 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onButtonClick(int position, String tag) {
         if (tag.equals("item1")  ) {
-            Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(),SportTrackerActivity.class);
+            startActivity(intent);
         } else if (tag.equals("item2")) {
             Toast.makeText(requireActivity(), "Meow", Toast.LENGTH_SHORT).show();
         }

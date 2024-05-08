@@ -130,6 +130,7 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
+
                             listener.onButtonClick(position,"item2"); // Pass a tag or identifier to differentiate between the card views
                         }
                     }

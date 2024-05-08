@@ -80,38 +80,16 @@ TextView seealltxt;
         expandablelastnameSociety = rootView.findViewById(R.id.expandablelastnameSociety);
         seminarRecyclerView = rootView.findViewById(R.id.seminarRecyclerView);
         triprecyclerView = rootView.findViewById(R.id.tripsrecyclerview);
-     seealltxt = rootView.findViewById(R.id.seealltxt);
-     //   seeallcardview = rootView.findViewById(R.id.seeallcardview);
+         seealltxt = rootView.findViewById(R.id.seealltxt);
 
-
-//        HashMap map = new HashMap();
-//        map.put("1","item1");
-//        map.put("2","item2");
-//        map.put("3","item3");
-//
-//
-//
-//        seealltxt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseFirestore db = FirebaseFirestore.getInstance();
-//                db.collection("temp").document("meow").set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Toast.makeText(getActivity(), "success", Toast.LENGTH_SHORT).show();
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast.makeText(getActivity(), "meow" + e, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), societyactivity.class);
-//                startActivity(intent);
-//
-//            }
-//        });
+        seealltxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //  Toast.makeText(getActivity(), "hello", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), societyactivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -146,13 +124,17 @@ TextView seealltxt;
         topSocietyAdapter.setOnButtonClickListener(this);
         topSocietyRecyclerView.setHasFixedSize(true);
         topSocietyRecyclerView.setItemViewCacheSize(20);
-       // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+
+        SnapHelper snapHelper2 = new PagerSnapHelper();
+        snapHelper2.attachToRecyclerView(topSocietyRecyclerView);
+
+
+        // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
-        topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-      //  SnapHelper snapHelper2 = new PagerSnapHelper();
-      //  snapHelper2.attachToRecyclerView(topSocietyRecyclerView);
+
 
         ArrayList<SeminarItemData> seminarItemData = getSeminarItemData();
 
@@ -162,14 +144,17 @@ TextView seealltxt;
         seminarAdapter.setOnButtonClickListener(this);
         seminarRecyclerView.setHasFixedSize(true);
         seminarRecyclerView.setItemViewCacheSize(20);
+        seminarRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+           SnapHelper snapHelper3 = new PagerSnapHelper();
+        snapHelper3.attachToRecyclerView(seminarRecyclerView);
+
+
 
         // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
-        seminarRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-     //   SnapHelper snapHelper3 = new PagerSnapHelper();
-       //snapHelper3.attachToRecyclerView(seminarRecyclerView);
+
 
 
         ArrayList<TripItemData> tripItemData = new ArrayList<>();
@@ -186,16 +171,16 @@ TextView seealltxt;
         triprecyclerView.setAdapter(tripsAdapter);
         tripsAdapter.setOnButtonClickListener(this);
         triprecyclerView.setItemViewCacheSize(20);
+        triprecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+//        SnapHelper snapHelper4 = new PagerSnapHelper();
+//        snapHelper4.attachToRecyclerView(triprecyclerView);
 
+        //Extra
         // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
-        triprecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         //   membershipRecyclerView.setLayoutManager(membershipLayout);
-       // SnapHelper snapHelper4 = new PagerSnapHelper();
-       // snapHelper4.attachToRecyclerView(triprecyclerView);
-
-       // postponeEnterTransition();
+         // postponeEnterTransition();
 
 
         return rootView;
@@ -204,9 +189,9 @@ TextView seealltxt;
     @NonNull
     private static ArrayList<SeminarItemData> getSeminarItemData() {
         ArrayList<SeminarItemData> seminarItemData = new ArrayList<>();
-        SeminarItemData item4 = new SeminarItemData("AI by Deep Learning",R.drawable.ai,9000,"Ammer Saeed",R.color.red,R.drawable.mypic,"12:30","SEECS");
-        SeminarItemData item5 = new SeminarItemData("AI by Deep Learning",R.drawable.swim,9000,"Ammer Saeed",R.color.red,R.drawable.mypic3,"12:30","SEECS");
-        SeminarItemData item6 = new SeminarItemData("AI by Deep Learning",R.drawable.ai,9000,"Ammer Saeed",R.color.red,R.drawable.mypic,"12:30","SEECS");
+        SeminarItemData item4 = new SeminarItemData("Gaming Technologies",R.drawable.ai,9000,"Ammer Saeed",R.color.red,R.drawable.mypic,"12:30","SEECS");
+        SeminarItemData item5 = new SeminarItemData("Artifical Intellignece",R.drawable.swim,9000,"Google",R.color.red,R.drawable.mypic3,"12:30","SEECS");
+        SeminarItemData item6 = new SeminarItemData("Web Technologies",R.drawable.ai,9000,"Devsync",R.color.red,R.drawable.mypic,"12:30","SEECS");
         seminarItemData.add(item4);
         seminarItemData.add(item5);
         seminarItemData.add(item6);
