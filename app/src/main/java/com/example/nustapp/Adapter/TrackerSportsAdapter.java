@@ -82,6 +82,34 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
             }
         });
 
+        holder.waiting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    // int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onButtonClick(position, "waiting"); // Pass a tag or identifier to differentiate between the card views
+                    }
+                }
+
+            }
+        });
+
+        holder.cancelReservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    // int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onButtonClick(position, "cancelreservation"); // Pass a tag or identifier to differentiate between the card views
+                    }
+                }
+
+            }
+        });
+
+
+
             if(trackingSportsData.isExpandable)
             {
                 holder.expandableConstraintLayout.setVisibility(View.VISIBLE);
@@ -106,6 +134,8 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
 
 
 
+
+
     }
 
     @Override
@@ -122,6 +152,8 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
 
         Button reservation;
         Button booking;
+        Button waiting;
+        Button cancelReservation;
 
         LinearLayout expnadableLinearlayoutTracker;
 
@@ -132,27 +164,15 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
             super(itemView);
             groundName = itemView.findViewById(R.id.groundname);
             groundStatus = itemView.findViewById(R.id.Trackerplayersno);
-            avability = itemView.findViewById(R.id.trackerstatus);
+          //  avability = itemView.findViewById(R.id.trackerstatus);
             reservation = itemView.findViewById(R.id.reservationButton);
-            booking = itemView.findViewById(R.id.bookingbutton);
+            booking = itemView.findViewById(R.id.booking);
+            waiting = itemView.findViewById(R.id.waitingbtn);
+            cancelReservation = itemView.findViewById(R.id.cancelreservation);
             expnadableLinearlayoutTracker = itemView.findViewById(R.id.TrackerextendableLinearLayout);
              expandableConstraintLayout = itemView.findViewById(R.id.Trackerextendableconstraintlayout);
             Trackerexpandablecardview = itemView.findViewById(R.id.Trackerexpandablecardview);
 
-//            reservation.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                }
-//            });
-
-//            booking.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int position = getAdapterPosition();
-//                    listener.onButtonClick(position,"b");
-//                }
-//            });
 
 
         }

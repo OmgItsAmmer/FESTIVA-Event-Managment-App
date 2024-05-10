@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/darkbluebg"
     tools:context="com.example.nustapp.login.Login">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.7"
-        android:background="@drawable/bg8" />
+
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +27,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/kanitlight"
             android:padding="10dp"
             android:scrollbarSize="32sp"
-            android:text="HSK Learning"
-            android:textColor="@color/black"
+
+            android:text="Campus Connect"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -39,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="@color/black"
         android:layout_marginBottom="-20dp"
         app:cardCornerRadius="20dp">
 

@@ -78,11 +78,19 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
         
         if(tag.equals("reservation"))
         {
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Reservation", Toast.LENGTH_SHORT).show();
         }
         else if (tag.equals("booking"))
         {
-            Toast.makeText(this, "meow", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "booking", Toast.LENGTH_SHORT).show();
+        }
+        else if (tag.equals("waiting"))
+        {
+            Toast.makeText(this, "Waiting", Toast.LENGTH_SHORT).show();
+        }
+        else if (tag.equals("cancelreservation"))
+        {
+            Toast.makeText(this, "Cancel Reservation", Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -95,6 +103,6 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
 
     @Override
     public void onOneItemButtonClick(int position) {
-        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+     //  Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
     }
 }

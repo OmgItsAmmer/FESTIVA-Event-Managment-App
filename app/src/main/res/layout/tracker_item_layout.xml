@@ -73,24 +73,13 @@
                 android:visibility="visible"
                 >
 
-                <TextView
-                    android:id="@+id/trackerstatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="28dp"
-                    android:text="Status: Not Avaliable"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/kanitlight"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <Button
                     android:id="@+id/reservationButton"
-                    android:layout_width="145dp"
-                    android:layout_height="50dp"
+
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_width="145dp"
+                    android:layout_height="50dp"
                     android:backgroundTint="@color/babyblue"
                     android:fontFamily="@font/kanitlight"
                     android:text="Reservation"
@@ -98,17 +87,48 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/bookingbutton"
+                    android:id="@+id/cancelreservation"
                     android:layout_width="145dp"
-                    android:layout_height="50dp"
-                    android:fontFamily="@font/kanitlight"
-                    android:backgroundTint="@color/babyblue"
-                    android:elevation="100dp"
-                    android:layout_marginTop="28dp"
+                    android:layout_height="62dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="20dp"
-                    android:text="Booking"
+                    android:backgroundTint="@color/red"
+                    android:elevation="100dp"
+                    android:fontFamily="@font/kanitlight"
+                    android:text="Cancel Reservation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/reservationButton" />
+
+                <Button
+                    android:id="@+id/booking"
+                    android:layout_width="145dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/babyblue"
+                    android:fontFamily="@font/kanitlight"
+                    android:text="Booking"
+                    android:layout_marginTop="16dp"
+
+                    app:layout_constraintEnd_toStartOf="@+id/reservationButton"
+                    app:layout_constraintHorizontal_bias="0.294"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/waitingbtn"
+                    android:layout_width="145dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="60dp"
+                    android:backgroundTint="@color/babyblue"
+                    android:fontFamily="@font/kanitlight"
+                    android:text="Waiting"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cancelreservation"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/booking"
+                    app:layout_constraintVertical_bias="0.0" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
