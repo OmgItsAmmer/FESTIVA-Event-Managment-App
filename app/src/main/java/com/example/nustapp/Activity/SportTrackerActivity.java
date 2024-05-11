@@ -2,15 +2,18 @@ package com.example.nustapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nustapp.Adapter.TrackerSportsAdapter;
+import com.example.nustapp.Adapter.TripsAdapter;
 import com.example.nustapp.Interfaces.OnButtonClickListener;
 import com.example.nustapp.ItemClasses.TrackerSportsItemData;
 import com.example.nustapp.R;
@@ -18,14 +21,14 @@ import com.example.nustapp.R;
 import java.util.ArrayList;
 
 
-public class SportTrackerActivity extends AppCompatActivity {
+public class SportTrackerActivity extends AppCompatActivity implements OnButtonClickListener {
 
     RecyclerView trackerrecyclerview;
 
     TrackerSportsAdapter trackerSportsAdapter;
 
     OnButtonClickListener listener;
-    Button reservation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,24 +40,21 @@ public class SportTrackerActivity extends AppCompatActivity {
 
         ArrayList<TrackerSportsItemData> trackerSportsItemData = new ArrayList<>();
 
-        TrackerSportsItemData item1 = new TrackerSportsItemData("SNS GROUND","9/11",true,false);
-        TrackerSportsItemData item2 = new TrackerSportsItemData("HBL GROUND","6/11",false,false);
+        TrackerSportsItemData item1 = new TrackerSportsItemData("SNS GROUND", "9/11", true, false);
+        TrackerSportsItemData item2 = new TrackerSportsItemData("HBL GROUND", "6/11", false, false);
         trackerSportsItemData.add(item1);
         trackerSportsItemData.add(item2);
 
 
-        try{
-            trackerSportsAdapter = new TrackerSportsAdapter( trackerSportsItemData,getApplicationContext());
+        try {
+            trackerSportsAdapter = new TrackerSportsAdapter(trackerSportsItemData, getApplicationContext());
 
             trackerrecyclerview.setAdapter(trackerSportsAdapter);
             trackerSportsAdapter.setOnButtonClickListener(listener);
             trackerrecyclerview.setLayoutManager(new LinearLayoutManager(this));
+        } catch (Exception e) {
+            Toast.makeText(this, "" + e, Toast.LENGTH_SHORT).show();
         }
-        catch (Exception e)
-        {
-            Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
-        }
-
 
 
         // trackerrecyclerview.setItemViewCacheSize(20);
@@ -67,6 +67,22 @@ public class SportTrackerActivity extends AppCompatActivity {
         // snapHelper4.attachToRecyclerView(triprecyclerView);
 
 
+    }
 
+    @Override
+    public void onButtonClick(int position, String tag) {
+        
+        if(tag.equals("r"))
+        {
+            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+        }
+            
+
+
+    }
+
+    @Override
+    public void onOneItemButtonClick(int position) {
+        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
     }
 }

@@ -51,15 +51,17 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
         holder.groundName.setText(trackingSportsData.getGroundName());
         holder.groundStatus.setText("Players: "+ trackingSportsData.getStatus());
         Boolean isExpandable = trackingSportsData.getExpandable();
+        holder.reservation.setText("Reservation");
+        holder.booking.setText("Booking");
 
-        if(trackingSportsData.isExpandable)
-        {
-            holder.expandableConstraintLayout.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            holder.expandableConstraintLayout.setVisibility(View.GONE);
-        }
+            if(trackingSportsData.isExpandable)
+            {
+                holder.expandableConstraintLayout.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                holder.expandableConstraintLayout.setVisibility(View.GONE);
+            }
 
         holder.Trackerexpandablecardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,13 +71,6 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
                 notifyDataSetChanged();
             }
         });
-
-
-
-
-
-
-
     }
 
     @Override
@@ -103,11 +98,26 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
             groundName = itemView.findViewById(R.id.groundname);
             groundStatus = itemView.findViewById(R.id.Trackerplayersno);
             avability = itemView.findViewById(R.id.trackerstatus);
-            //  reservation = itemView.findViewById(R.id.reservationButton);
+            reservation = itemView.findViewById(R.id.reservationButton);
             booking = itemView.findViewById(R.id.bookingbutton);
             expnadableLinearlayoutTracker = itemView.findViewById(R.id.TrackerextendableLinearLayout);
-            expandableConstraintLayout = itemView.findViewById(R.id.Trackerextendableconstraintlayout);
+             expandableConstraintLayout = itemView.findViewById(R.id.Trackerextendableconstraintlayout);
             Trackerexpandablecardview = itemView.findViewById(R.id.Trackerexpandablecardview);
+
+            reservation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+
+//            booking.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int position = getAdapterPosition();
+//                    listener.onButtonClick(position,"b");
+//                }
+//            });
 
 
         }

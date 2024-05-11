@@ -24,12 +24,12 @@ public class Register extends AppCompatActivity {
     Map<String, Object> users = GetUserInfo.users;
     EditText signUpEmailAddress, signUpPassword, confirmPassword;
     Button register;
-     FirebaseAuth auth;
-     FirebaseFirestore db = GetUserInfo.db;
+    FirebaseAuth auth;
+    FirebaseFirestore db = GetUserInfo.db;
     String user;
     String pass;
     String repass;
-
+    boolean isRegistering = false;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,47 +49,70 @@ public class Register extends AppCompatActivity {
             repass = confirmPassword.getText().toString();
 
             signIn(user, pass, repass);
-            Intent intent = new Intent(Register.this, GetUserInfo.class);
-            intent.putExtra("email", user);
-            users.put("email", user);
-            db.collection("users").document(user);
-            startActivity(intent);
         });
     }
 
     public void signIn(String user, String pass, String repass) {
         if (user.isEmpty() || pass.isEmpty() || repass.isEmpty()) {
             Toast.makeText(Register.this, "Empty Credentials", Toast.LENGTH_SHORT).show();
-        }
-        else if (pass.length() < 6) {
+        } else if (pass.length() < 6) {
             Toast.makeText(Register.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-        }
-        else if (!pass.equals(repass)) {
+        } else if (!pass.equals(repass)) {
             Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            auth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    FirebaseUser firebaseUser = auth.getCurrentUser();
-                    if (firebaseUser != null) {
-                        firebaseUser.sendEmailVerification().addOnCompleteListener(task1 -> {
-                            if (task1.isSuccessful()) {
-                                makeText(Register.this, "Verification email sent", Toast.LENGTH_SHORT).show();
-                            } else {
-                                makeText(Register.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
+        } else {
+            auth.createUserWithEmailAndPassword(user, pass).addOnSuccessListener(authResult -> {
+                FirebaseUser firebaseUser = auth.getCurrentUser();
+                if (firebaseUser != null) {
+                    firebaseUser.sendEmailVerification().addOnSuccessListener(task1 -> {
+                            makeText(Register.this, "Verification email sent", Toast.LENGTH_SHORT).show();
+                            onResume();
+                    }).addOnFailureListener(e -> {
+                            makeText(Register.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                            firebaseUser.delete();
+                    });
                 }
-                    else {
-                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                        makeText(Register.this, "User Already Exists", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        makeText(Register.this, "User Not Created", Toast.LENGTH_SHORT).show();
-                    }
+            }).addOnFailureListener(e -> {
+                FirebaseUser firebaseUser = auth.getCurrentUser();
+                if (e instanceof FirebaseAuthUserCollisionException) {
+                    makeText(Register.this, "User Already Exists", Toast.LENGTH_SHORT).show();
+                    recreate();
+                } else {
+                    makeText(Register.this, "User Not Created", Toast.LENGTH_SHORT).show();
+                    recreate();
                 }
+                assert firebaseUser != null;
+                firebaseUser.delete();
             });
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(isRegistering) {
+            FirebaseUser firebaseUser = auth.getCurrentUser();
+            if (firebaseUser != null && isRegistering) { // Check if user is registering
+                firebaseUser.reload().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (firebaseUser.isEmailVerified()) {
+                            Toast.makeText(Register.this, "Email verified", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Register.this, GetUserInfo.class));
+                        } else {
+                            Toast.makeText(Register.this, "Please respond to the verification email sent", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        // Handle error
+                        Toast.makeText(Register.this, "Failed to reload user", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
+        else {}
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isRegistering = true;
     }
 }

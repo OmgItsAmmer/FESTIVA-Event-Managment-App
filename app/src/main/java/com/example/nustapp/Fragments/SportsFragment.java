@@ -1,12 +1,15 @@
 package com.example.nustapp.Fragments;
 
 import android.animation.LayoutTransition;
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,24 +22,29 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import com.example.nustapp.Adapter.EventBannerAdapter;
+import com.bumptech.glide.Glide;
+import com.example.nustapp.Activity.SportTrackerActivity;
 import com.example.nustapp.Adapter.MembershipAdapter;
 import com.example.nustapp.Adapter.TrackingSportsAdapter;
 import com.example.nustapp.Interfaces.OnButtonClickListener;
-import com.example.nustapp.ItemClasses.EventBannerData;
 import com.example.nustapp.ItemClasses.MembershipItemData;
 import com.example.nustapp.ItemClasses.TrackingSportsData;
 import com.example.nustapp.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
-import java.io.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SportsFragment extends Fragment implements OnButtonClickListener {
 
+    ImageButton userImage;
     public SportsFragment(){
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sports, container, false);
@@ -44,30 +52,34 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         RecyclerView membershipRecyclerView;
         MembershipAdapter membershipAdapter;
         TrackingSportsAdapter trackingSportsAdapter;
-        LinearLayoutManager trackinglinearlayout;
+        LinearLayoutManager trackingLinearLayout;
         LinearLayoutManager membershipLayout;
         CardView cardViewExpandable;
-        ConstraintLayout ExpandableprofileLayout;
-        LinearLayout ExpandableLinearLayout;
-        TextView expandablelastname;
+        ConstraintLayout expandableProfileLayout;
+        LinearLayout expandableLinearLayout;
+        TextView expandableLastName;
+
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("profileImages/").child(Objects.requireNonNull(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail()));
 
 
-        expandablelastname = rootView.findViewById(R.id.expandablelastname);
+        expandableLastName = rootView.findViewById(R.id.expandablelastname);
         trackingRecyclerView = rootView.findViewById(R.id.trendingRecyclerview);
         membershipRecyclerView = rootView.findViewById(R.id.MembershipRecyclerView);
         cardViewExpandable = rootView.findViewById(R.id.cardviewExpandable);
-        ExpandableprofileLayout = rootView.findViewById(R.id.expandableprofilelayout);
-        ExpandableLinearLayout = rootView.findViewById(R.id.expandalbeLinearLayout);
+        expandableProfileLayout = rootView.findViewById(R.id.expandableprofilelayout);
+        expandableLinearLayout = rootView.findViewById(R.id.expandalbeLinearLayout);
+        userImage = rootView.findViewById(R.id.userImage);
 
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(SportsFragment.this).load(uri).into(userImage)).addOnFailureListener(e -> Toast.makeText(getActivity(), "Error loading image from Database", Toast.LENGTH_SHORT).show());
 
-        ExpandableLinearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        expandableLinearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         cardViewExpandable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int visiblilty = (ExpandableprofileLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
-                TransitionManager.beginDelayedTransition(ExpandableLinearLayout, new AutoTransition());
-                ExpandableprofileLayout.setVisibility(visiblilty);
-                expandablelastname.setVisibility(visiblilty);
+                int visibility = (expandableProfileLayout.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+                TransitionManager.beginDelayedTransition(expandableLinearLayout, new AutoTransition());
+                expandableProfileLayout.setVisibility(visibility);
+                expandableLastName.setVisibility(visibility);
             }
         });
 
@@ -89,8 +101,8 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         trackingSportsAdapter = new TrackingSportsAdapter(requireContext().getApplicationContext(), trackingSportsitems);
         trackingRecyclerView.setAdapter(trackingSportsAdapter);
         trackingSportsAdapter.setOnButtonClickListener(this);
-        trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
-        trackingRecyclerView.setLayoutManager(trackinglinearlayout);
+        trackingLinearLayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
+        trackingRecyclerView.setLayoutManager(trackingLinearLayout);
         SnapHelper snapHelper1 = new PagerSnapHelper(); // or LinearSnapHelper() for smoother scrolling
         snapHelper1.attachToRecyclerView(trackingRecyclerView);
 
@@ -109,7 +121,7 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
         membershipAdapter.setOnButtonClickListener(this);
         membershipRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
     //    membershipRecyclerView.setLayoutManager(layoutManager);
-     //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
+     //   trackingLinearLayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
      //   membershipRecyclerView.setLayoutManager(membershipLayout);
         SnapHelper snapHelper2 = new PagerSnapHelper(); // or LinearSnapHelper() for smoother scrolling
         snapHelper2.attachToRecyclerView(membershipRecyclerView);
@@ -123,7 +135,9 @@ public class SportsFragment extends Fragment implements OnButtonClickListener {
     @Override
     public void onButtonClick(int position, String tag) {
         if (tag.equals("item1")  ) {
-            Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(),SportTrackerActivity.class);
+            startActivity(intent);
         } else if (tag.equals("item2")) {
             Toast.makeText(requireActivity(), "Meow", Toast.LENGTH_SHORT).show();
         }

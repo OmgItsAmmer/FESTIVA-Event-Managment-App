@@ -24,20 +24,20 @@ public class EventBannerAdapter extends RecyclerView.Adapter<EventBannerAdapter.
     Context context;
     OnButtonClickListener mListener;
 
-    public EventBannerAdapter(Context context, ArrayList<EventBannerData> items ) {
+    public EventBannerAdapter(Context context, ArrayList<EventBannerData> items) {
         this.items = items;
         this.context = context;
     }
+
     public void setOnButtonClickListener(OnButtonClickListener listener) {
-         mListener = listener;
+        mListener = listener;
     }
 
     @NonNull
     @Override
     public EventBannerAdapter.EventBannerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.event_banner_item,parent,false);
-        return new EventBannerAdapter.EventBannerViewHolder(view,mListener);
-
+        View view = LayoutInflater.from(context).inflate(R.layout.event_banner_item, parent, false);
+        return new EventBannerAdapter.EventBannerViewHolder(view, mListener);
 
 
     }
@@ -54,25 +54,20 @@ public class EventBannerAdapter extends RecyclerView.Adapter<EventBannerAdapter.
         holder.intresetedtxt.setText("Intreseted: " + intresetedNo);
         Glide.with(context).load(itemData.getBannerUrl()).into(holder.bannerImage);
         boolean isExpandable = itemData.isExpandable();
-        if(isExpandable)
-        {
+        if (isExpandable) {
             holder.eventDescription.setVisibility(View.VISIBLE);
-        }
-        else
-        {
+        } else {
             holder.eventDescription.setVisibility(View.GONE);
         }
 
         holder.ExpandableLayout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                itemData.isExpandable= ! itemData.isExpandable;
+                itemData.isExpandable = !itemData.isExpandable;
                 notifyDataSetChanged();
             }
         });
-
-
-
 
 
     }
@@ -82,18 +77,17 @@ public class EventBannerAdapter extends RecyclerView.Adapter<EventBannerAdapter.
         return items.size();
     }
 
-    public class EventBannerViewHolder extends RecyclerView.ViewHolder {
 
+    class EventBannerViewHolder extends RecyclerView.ViewHolder {
         ImageView bannerImage;
         TextView eventDescription;
         TextView eventTitle;
 
 
-
         TextView intresetedtxt;
         RelativeLayout ExpandableLayout;
 
-        public EventBannerViewHolder(@NonNull View itemView,OnButtonClickListener listener) {
+        public EventBannerViewHolder(@NonNull View itemView, OnButtonClickListener listener) {
             super(itemView);
             bannerImage = itemView.findViewById(R.id.bannerImage);
             eventDescription = itemView.findViewById(R.id.eventdesription);
@@ -103,3 +97,4 @@ public class EventBannerAdapter extends RecyclerView.Adapter<EventBannerAdapter.
         }
     }
 }
+
