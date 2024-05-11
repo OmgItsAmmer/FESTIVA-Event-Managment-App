@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1044134810559",
-    "project_id": "campusconnectmain",
-    "storage_bucket": "campusconnectmain.appspot.com"
+    "project_number": "815541319343",
+    "project_id": "nustapp-2320d",
+    "storage_bucket": "nustapp-2320d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1044134810559:android:f1c7853dcf09832c17470a",
+        "mobilesdk_app_id": "1:815541319343:android:fd274d55a4abd52ad1865a",
         "android_client_info": {
           "package_name": "com.example.nustapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAL7gSF03iagdqIu4YDz1K15ik0xUCxYs4"
+          "current_key": "AIzaSyA83QcWS1I4w8Gt9bXUW8cyAUxfCPTyXig"
         }
       ],
       "services": {

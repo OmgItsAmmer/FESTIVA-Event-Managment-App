@@ -190,8 +190,8 @@ TextView seealltxt;
     private static ArrayList<SeminarItemData> getSeminarItemData() {
         ArrayList<SeminarItemData> seminarItemData = new ArrayList<>();
         SeminarItemData item4 = new SeminarItemData("Gaming Technologies",R.drawable.ai,9000,"Ammer Saeed",R.color.red,R.drawable.mypic,"12:30","SEECS");
-        SeminarItemData item5 = new SeminarItemData("Artifical Intellignece",R.drawable.swim,9000,"Google",R.color.red,R.drawable.mypic3,"12:30","SEECS");
-        SeminarItemData item6 = new SeminarItemData("Web Technologies",R.drawable.ai,9000,"Devsync",R.color.red,R.drawable.mypic,"12:30","SEECS");
+        SeminarItemData item5 = new SeminarItemData("Introduction to Virtual Reality",R.drawable.seminar2,1100,"Google",R.color.red,R.drawable.mypic3,"12:30","SEECS");
+        SeminarItemData item6 = new SeminarItemData("Gesture Detection",R.drawable.seminar1,300,"Devsync",R.color.red,R.drawable.mypic,"12:30","SEECS");
         seminarItemData.add(item4);
         seminarItemData.add(item5);
         seminarItemData.add(item6);

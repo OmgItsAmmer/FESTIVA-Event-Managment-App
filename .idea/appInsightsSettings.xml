@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.nustapp" />
-                  <option name="mobileSdkAppId" value="1:1044134810559:android:f1c7853dcf09832c17470a" />
-                  <option name="projectId" value="campusconnectmain" />
-                  <option name="projectNumber" value="1044134810559" />
+                  <option name="mobileSdkAppId" value="1:815541319343:android:fd274d55a4abd52ad1865a" />
+                  <option name="projectId" value="nustapp-2320d" />
+                  <option name="projectNumber" value="815541319343" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

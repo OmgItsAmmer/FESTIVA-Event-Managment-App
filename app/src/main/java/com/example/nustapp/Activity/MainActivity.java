@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                 //   .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, societyFragment)
                     .commit();
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                     .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, sportsFragment)
                     .commit();
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             getSupportFragmentManager()
                     .beginTransaction()
                     .setReorderingAllowed(true)
-                    .setCustomAnimations(R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
+                    .setCustomAnimations(R.anim.exit_right_to_left, R.anim.enter_left_to_right,R.anim.exit_right_to_left,R.anim.exit_left_to_right)
                     .replace(R.id.flFragment, homeFragment)
                     .commit();
 
