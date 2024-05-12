@@ -14,8 +14,11 @@ firebaseFirestore = "24.11.1"
 firebaseDatabase = "20.3.1"
 firebaseAuth = "22.3.1"
 googleGmsGoogleServices = "4.4.1"
+<<<<<<< HEAD
 firebaseStorage = "21.0.0"
 firebaseFirestoreVersion = "25.0.0"
+=======
+>>>>>>> 867f967e59ac066f570fef3e6ff4385b0e3e62b3
 
 [libraries]
 firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCore" }
@@ -36,6 +39,9 @@ google-firebase-firestore = { group = "com.google.firebase", name = "firebase-fi
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 867f967e59ac066f570fef3e6ff4385b0e3e62b3
 

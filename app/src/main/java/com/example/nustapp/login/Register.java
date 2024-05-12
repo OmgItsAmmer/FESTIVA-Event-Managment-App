@@ -91,8 +91,8 @@ public class Register extends AppCompatActivity {
         super.onResume();
         if(isRegistering) {
             FirebaseUser firebaseUser = auth.getCurrentUser();
-            if (firebaseUser != null && isRegistering) { // Check if user is registering
-                firebaseUser.reload().addOnCompleteListener(task -> {
+            assert firebaseUser != null;
+            firebaseUser.reload().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         if (firebaseUser.isEmailVerified()) {
                             Toast.makeText(Register.this, "Email verified", Toast.LENGTH_SHORT).show();
@@ -106,13 +106,13 @@ public class Register extends AppCompatActivity {
                     }
                 });
             }
-        }
         else {}
     }
-
     @Override
     public void onPause() {
         super.onPause();
         isRegistering = true;
     }
 }
+
+

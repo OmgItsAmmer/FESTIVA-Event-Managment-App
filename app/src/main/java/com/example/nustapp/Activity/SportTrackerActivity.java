@@ -46,8 +46,12 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
         trackerSportsItemData.add(item2);
 
 
+        listener = this; // to initlize the listner for the sake of two buttons
+
+
+
         try {
-            trackerSportsAdapter = new TrackerSportsAdapter(trackerSportsItemData, getApplicationContext());
+            trackerSportsAdapter = new TrackerSportsAdapter(trackerSportsItemData, getApplicationContext(),listener);
 
             trackerrecyclerview.setAdapter(trackerSportsAdapter);
             trackerSportsAdapter.setOnButtonClickListener(listener);
@@ -72,9 +76,25 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
     @Override
     public void onButtonClick(int position, String tag) {
         
-        if(tag.equals("r"))
+        if(tag.equals("reservation"))
         {
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Reservation", Toast.LENGTH_SHORT).show();
+        }
+        else if (tag.equals("booking"))
+        {
+            Toast.makeText(this, "booking", Toast.LENGTH_SHORT).show();
+        }
+        else if (tag.equals("waiting"))
+        {
+            Toast.makeText(this, "Waiting", Toast.LENGTH_SHORT).show();
+        }
+        else if (tag.equals("cancelreservation"))
+        {
+            Toast.makeText(this, "Cancel Reservation", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(this, "no item", Toast.LENGTH_SHORT).show();
         }
             
 
@@ -83,6 +103,6 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
 
     @Override
     public void onOneItemButtonClick(int position) {
-        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+     //  Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
     }
 }
