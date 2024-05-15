@@ -150,7 +150,8 @@
                                     android:layout_height="40dp"
                                     android:layout_gravity="center"
                                     android:background="@drawable/mypic"
-                                    android:scaleType="fitXY" />
+                                    android:scaleType="fitXY"
+                                    tools:ignore="SpeakableTextPresentCheck" />
                             </androidx.cardview.widget.CardView>
 
                             <TextView
@@ -328,22 +329,23 @@
                 android:text="Top Societies: "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/societyFrameLayout" />
+
             <TextView
                 android:id="@+id/seealltxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:clickable="true"
-                android:fontFamily="@font/kanitlight"
-                android:textColor="@color/white"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="12dp"
-
-                app:layout_constraintBottom_toTopOf="@+id/cardView3"
-                app:layout_constraintEnd_toEndOf="parent"
-
+                android:clickable="true"
+                android:fontFamily="@font/kanitlight"
                 android:text="See all"
-                />
+
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
 
 

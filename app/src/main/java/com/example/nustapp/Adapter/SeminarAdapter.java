@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -83,6 +84,10 @@ public class SeminarAdapter extends RecyclerView.Adapter<SeminarAdapter.SeminarV
 
         ImageView Banner;
         CardView BannerColor;
+
+        RelativeLayout seminarlayout;
+
+
         public SeminarViewHolder(@NonNull View itemView, OnButtonClickListener listener) {
             super(itemView);
             seminarEventTitle = itemView.findViewById(R.id.seminareventtitle);
@@ -93,6 +98,22 @@ public class SeminarAdapter extends RecyclerView.Adapter<SeminarAdapter.SeminarV
             Banner = itemView.findViewById(R.id.seminarbannerImage);
             BannerColor = itemView.findViewById(R.id.seminarcardlayout);
             seminarEnrolled =itemView.findViewById(R.id.seminarintresetedtxt);
+            seminarlayout = itemView.findViewById(R.id.seminarlayout);
+
+            seminarlayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+
+                            listener.onButtonClick(position,"seminar"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
+
+
 
         }
     }

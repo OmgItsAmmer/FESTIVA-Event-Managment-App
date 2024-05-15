@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -64,12 +65,28 @@ public class SeeAllSocietiesAdapter extends RecyclerView.Adapter<SeeAllSocieties
         TextView societyTitle;
         ImageView banner;
         ImageView hiringImage;
-        public SeeAllSocietyViewHolder(@NonNull View itemView,OnButtonClickListener listener) {
+        CardView seeallcardview;
+
+        public SeeAllSocietyViewHolder(@NonNull View itemView, final OnButtonClickListener listener) {
             super(itemView);
             societyTitle = itemView.findViewById(R.id.seeallsocietytitle);
             banner = itemView.findViewById(R.id.seeallsocietyiamge);
             hiringImage = itemView.findViewById(R.id.seeallsocietyhiring);
+            seeallcardview = itemView.findViewById(R.id.seeallcardview);
+
+            seeallcardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onOneItemButtonClick(position); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
 
         }
     }
+
 }

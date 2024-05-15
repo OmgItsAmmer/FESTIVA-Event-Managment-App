@@ -88,6 +88,7 @@ public class TopSocietyAdapter extends RecyclerView.Adapter<TopSocietyAdapter.To
             topSocietyMembersNo = itemView.findViewById(R.id.topsocietyintresetedtxt);
              topSocietyimage= itemView.findViewById(R.id.topsocietybannerImage);
              topSocietyHiring= itemView.findViewById(R.id.topsocietyhiringimage);
+
         }
     }
 }

@@ -22,7 +22,9 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.nustapp.Activity.InfoActivity;
 import com.example.nustapp.Activity.MainActivity;
+import com.example.nustapp.Activity.SportTrackerActivity;
 import com.example.nustapp.Activity.societyactivity;
 import com.example.nustapp.Adapter.MembershipAdapter;
 import com.example.nustapp.Adapter.SeminarAdapter;
@@ -201,7 +203,12 @@ TextView seealltxt;
 
     @Override
     public void onButtonClick(int position, String tag) {
-
+        if (tag.equals("seminar")  ) {
+            //  Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), InfoActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

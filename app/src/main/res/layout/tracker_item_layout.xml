@@ -103,13 +103,15 @@
                     android:id="@+id/booking"
                     android:layout_width="145dp"
                     android:layout_height="50dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="16dp"
                     android:backgroundTint="@color/babyblue"
                     android:fontFamily="@font/kanitlight"
                     android:text="Booking"
-                    android:layout_marginTop="16dp"
 
                     app:layout_constraintEnd_toStartOf="@+id/reservationButton"
-                    app:layout_constraintHorizontal_bias="0.294"
+
+                    app:layout_constraintHorizontal_bias="0.188"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,14 +120,14 @@
                     android:layout_width="145dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginEnd="48dp"
                     android:backgroundTint="@color/babyblue"
                     android:fontFamily="@font/kanitlight"
                     android:text="Waiting"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/cancelreservation"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.945"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/booking"
                     app:layout_constraintVertical_bias="0.0" />

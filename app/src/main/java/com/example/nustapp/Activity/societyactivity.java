@@ -4,6 +4,7 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -25,7 +26,7 @@ import com.example.nustapp.R;
 
 import java.util.ArrayList;
 
-public class societyactivity extends AppCompatActivity {
+public class societyactivity extends AppCompatActivity implements  OnButtonClickListener {
     RecyclerView seeallrecyclerview;
     SeeAllSocietiesAdapter seeAllSocietiesAdapter;
 
@@ -44,7 +45,7 @@ public class societyactivity extends AppCompatActivity {
 
         seeAllSocietiesAdapter = new SeeAllSocietiesAdapter( seeAllSocietiesItemData,getApplicationContext());
         seeallrecyclerview.setAdapter(seeAllSocietiesAdapter);
-        seeAllSocietiesAdapter.setOnButtonClickListener(listener);
+        seeAllSocietiesAdapter.setOnButtonClickListener(this);
         // topSocietyRecyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         //    membershipRecyclerView.setLayoutManager(layoutManager);
         //   trackinglinearlayout = new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false);
@@ -54,6 +55,9 @@ public class societyactivity extends AppCompatActivity {
 
         SnapHelper snapHelper4 = new PagerSnapHelper();
         snapHelper4.attachToRecyclerView(seeallrecyclerview);
+        
+        
+        
 
 
 
@@ -69,5 +73,15 @@ public class societyactivity extends AppCompatActivity {
         seeAllSocietiesItemData.add(item2);
         seeAllSocietiesItemData.add(item3);
         return seeAllSocietiesItemData;
+    }
+
+    @Override
+    public void onButtonClick(int position, String tag) {
+        
+    }
+
+    @Override
+    public void onOneItemButtonClick(int position) {
+        Toast.makeText(this, "Position " + position, Toast.LENGTH_SHORT).show();
     }
 }
