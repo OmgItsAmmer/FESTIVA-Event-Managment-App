@@ -117,10 +117,11 @@
 
 
                         <ImageButton
+                            android:id="@+id/userImage"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:layout_gravity="center"
                             android:background="@drawable/mypic"
+                            android:layout_gravity="center"
                             android:scaleType="fitXY"
                           />
                     </androidx.cardview.widget.CardView>

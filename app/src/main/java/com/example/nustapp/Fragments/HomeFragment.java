@@ -1,7 +1,10 @@
 package com.example.nustapp.Fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -12,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.nustapp.Activity.ProfileActivity;
 import com.example.nustapp.Adapter.EventBannerAdapter;
 import com.example.nustapp.Adapter.PoductAdapter;
 import com.example.nustapp.ItemClasses.EventBannerData;
@@ -25,11 +30,12 @@ import com.example.nustapp.R;
 import android.widget.Toast;
 
 import com.example.nustapp.Interfaces.OnButtonClickListener;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 
-public class HomeFragment extends Fragment implements  OnButtonClickListener{
+public class HomeFragment extends Fragment implements  OnButtonClickListener,NavigationView.OnNavigationItemSelectedListener{
     public DrawerLayout drawerLayout;
 
     public ImageButton actionBarDrawerToggle;
@@ -40,6 +46,7 @@ public class HomeFragment extends Fragment implements  OnButtonClickListener{
     ConstraintLayout invisibleconstraintlayout;
     PoductAdapter poductAdapter;
     LinearLayoutManager layoutManager;
+    NavigationView navigationView;
 
     public HomeFragment() {
          
@@ -63,6 +70,10 @@ public class HomeFragment extends Fragment implements  OnButtonClickListener{
         actionBarDrawerToggle = rootView.findViewById(R.id.togglebutton);
         productrecyclerView = rootView.findViewById(R.id.productrecyclerview);
         eventRecyclerView = rootView.findViewById(R.id.eventsrecyclerview);
+        navigationView = rootView.findViewById(R.id.nav_view);
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
 
         actionBarDrawerToggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,5 +150,21 @@ public class HomeFragment extends Fragment implements  OnButtonClickListener{
 
     }
 
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_account) {
+            Toast.makeText(getActivity(), "meow", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_logout) {
+            // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SlideshowFragment()).commit();
+        }
+
+        // drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 }

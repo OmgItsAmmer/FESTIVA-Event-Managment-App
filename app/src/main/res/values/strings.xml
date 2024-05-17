@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nust App</string>
+    <string name="app_name">FESTIVA</string>
     <!-- to toggle the open close button of the navigation drawer -->
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>

@@ -1,14 +1,13 @@
 package com.example.nustapp.Activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.nustapp.Fragments.HomeFragment;
 import com.example.nustapp.Fragments.SportsFragment;
@@ -20,10 +19,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener {
 
 
+DrawerLayout drawerLayout;
 
 
-
-    CardView temp;
 
     BottomNavigationView bottomNavigationView;
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Intent intent = getIntent();
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);

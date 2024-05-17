@@ -1,17 +1,13 @@
 package com.example.nustapp.Adapter;
 
-import android.animation.LayoutTransition;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -20,11 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nustapp.Interfaces.OnButtonClickListener;
 import com.example.nustapp.ItemClasses.TrackerSportsItemData;
-import com.example.nustapp.ItemClasses.TrackingSportsData;
 import com.example.nustapp.R;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdapter.TrackerSportsViewHolder> {
 
@@ -55,7 +49,7 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
     public void onBindViewHolder(@NonNull TrackerSportsAdapter.TrackerSportsViewHolder holder, @SuppressLint("RecyclerView") int position) {
         TrackerSportsItemData trackingSportsData = items.get(position);
         holder.groundName.setText(trackingSportsData.getGroundName());
-        holder.groundStatus.setText("Players: "+ trackingSportsData.getStatus());
+        holder.groundStatus.setText("Players: " + trackingSportsData.getStatus());
         Boolean isExpandable = trackingSportsData.getExpandable();
         holder.reservation.setText("Reservation");
         holder.booking.setText("Booking");
@@ -63,18 +57,19 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
-                //    int position = getAdapterPosition();
+                    //    int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         mListener.onButtonClick(position, "reservation"); // Pass a tag or identifier to differentiate between the card views
                     }
-                }            }
+                }
+            }
         });
 
         holder.booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                   if (mListener != null) {
-                   // int position = getAdapterPosition();
+                if (mListener != null) {
+                    // int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         mListener.onButtonClick(position, "booking"); // Pass a tag or identifier to differentiate between the card views
                     }
@@ -109,33 +104,20 @@ public class TrackerSportsAdapter extends RecyclerView.Adapter<TrackerSportsAdap
         });
 
 
-
-            if(trackingSportsData.isExpandable)
-            {
-                holder.expandableConstraintLayout.setVisibility(View.VISIBLE);
-            }
-            else
-            {
-                holder.expandableConstraintLayout.setVisibility(View.GONE);
-            }
+        if (trackingSportsData.isExpandable) {
+            holder.expandableConstraintLayout.setVisibility(View.VISIBLE);
+        } else {
+            holder.expandableConstraintLayout.setVisibility(View.GONE);
+        }
 
         holder.Trackerexpandablecardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                trackingSportsData.isExpandable =  !trackingSportsData.isExpandable;
+                trackingSportsData.isExpandable = !trackingSportsData.isExpandable;
                 notifyDataSetChanged();
             }
         });
-
-
-
-
-
-
-
-
-
     }
 
     @Override

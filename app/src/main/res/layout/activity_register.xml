@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg8"
+    android:background="@drawable/bj"
+
     tools:context="com.example.nustapp.login.Register">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.7"
-        android:background="@drawable/bg8" />
+
+         />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,48 +21,57 @@
         android:padding="20dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lang2"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/logof"
             android:contentDescription="logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HSK Learning"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/regular"
             android:padding="10dp"
             android:scrollbarSize="32sp"
-            android:textColor="@color/black" />
+            android:textSize="24sp"
+            android:text="F E S T i V A"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/white"
+        android:alpha="0.9"
+        android:layout_marginBottom="-20dp"
         app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:visibility="visible"
             android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
-                android:textColor="@color/babyblue"
+                android:fontFamily="@font/kanitlight"
+
+                android:textColor="@color/purple"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kanitlight"
+
                 android:text="Sign Up with your information"
-                android:alpha="0.6" />
+                android:textColor="@color/black" />
 
             <View
                 android:layout_width="wrap_content"
@@ -70,9 +80,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter email address"
+                android:text="Email Address"
+                android:fontFamily="@font/kanitlight"
                 android:textStyle="bold"
-                android:alpha="0.6" />
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/emailAddress"
@@ -89,8 +100,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
+                android:fontFamily="@font/kanitlight"
+
                 android:textStyle="bold"
-                android:alpha="0.6" />
+                android:textColor="@color/black"
+                />
 
             <EditText
                 android:id="@+id/password"
@@ -107,13 +121,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Confirm Password"
+                android:fontFamily="@font/kanitlight"
+
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                android:alpha="0.6" />
+               />
 
             <EditText
                 android:id="@+id/confirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
                 android:inputType="numberPassword"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -124,7 +143,10 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/RegisterButton"
                     android:layout_width="match_parent"
+                    android:backgroundTint="@color/purple"
+                    android:fontFamily="@font/kanitlight"
                     android:layout_height="50dp"
+                    android:textColor="@color/white"
                     android:text="Register"
                     app:cornerRadius="32dp" />
             </RelativeLayout>
