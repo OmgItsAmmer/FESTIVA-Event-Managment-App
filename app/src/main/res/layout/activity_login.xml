@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bj"
+    android:background="@drawable/bg6"
+
     tools:context="com.example.nustapp.login.Login">
 
     <RelativeLayout
@@ -52,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:alpha="0.8"
+
         app:cardBackgroundColor="@color/white"
         android:layout_marginBottom="-20dp"
         app:cardCornerRadius="20dp">

@@ -90,7 +90,29 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onButtonClick(position , "item1"); // Pass a tag or identifier to differentiate between the card views
+                            listener.onButtonClick(position , "cricket"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
+            item1cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position , "badminton"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
+            item1cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position , "footsal"); // Pass a tag or identifier to differentiate between the card views
                         }
                     }
                 }
@@ -102,7 +124,29 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
-                            listener.onButtonClick(position, "item2"); // Pass a tag or identifier to differentiate between the card views
+                            listener.onButtonClick(position, "football"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
+            item2cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position, "squash"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+            });
+            item2cardview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position, "bowling"); // Pass a tag or identifier to differentiate between the card views
                         }
                     }
                 }
@@ -115,13 +159,41 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                    if (listener != null) {
                        int position = getAdapterPosition();
                        if (position != RecyclerView.NO_POSITION) {
-                           listener.onButtonClick(position,"item1"); // Pass a tag or identifier to differentiate between the card views
+                           listener.onButtonClick(position,"cricket"); // Pass a tag or identifier to differentiate between the card views
                        }
                    }
                }
 
 
            });
+            trackingitem1image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position,"badminton"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+
+
+            });
+            trackingitem1image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onButtonClick(position,"footsal"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+
+
+            });
 
             trackingitem2image.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -131,7 +203,37 @@ public class TrackingSportsAdapter extends RecyclerView.Adapter<TrackingSportsAd
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
 
-                            listener.onButtonClick(position,"item2"); // Pass a tag or identifier to differentiate between the card views
+                            listener.onButtonClick(position,"football"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+
+
+            });
+            trackingitem2image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+
+                            listener.onButtonClick(position,"squash"); // Pass a tag or identifier to differentiate between the card views
+                        }
+                    }
+                }
+
+
+            });
+            trackingitem2image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+
+                            listener.onButtonClick(position,"bowling"); // Pass a tag or identifier to differentiate between the card views
                         }
                     }
                 }

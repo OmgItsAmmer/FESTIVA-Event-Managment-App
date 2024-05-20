@@ -73,9 +73,11 @@ public class SportTrackerActivity extends AppCompatActivity implements OnButtonC
 
     }
 
+
+    // Method was changed on Saims request 5/19/2024
     @Override
     public void onButtonClick(int position, String tag) {
-        
+
         if(tag.equals("reservation"))
         {
             Toast.makeText(this, "Reservation", Toast.LENGTH_SHORT).show();
