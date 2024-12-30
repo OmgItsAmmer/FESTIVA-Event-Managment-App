@@ -61,13 +61,8 @@ The **Event Management App** is an Android application designed to help students
 - **Retrofit** for API calls
 - **SQLite** for local storage
 
-## Contact
-For feedback, issues, or collaboration, feel free to reach out via:
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub]
+
 
 ## Credits
-- **Developer**: [Your Name]
-- **App Design & Concept**: [Team/Contributors]
+- **Developer**: [Ammer Saeed]
 - **Inspiration**: Various campus management tools, sports tracking apps, and event management platforms.
